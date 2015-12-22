@@ -10,6 +10,22 @@ install_node_modules() {
     else
       echo "Installing node modules (package.json)"
     fi
+    echo "LIBRARY_PATH"
+    echo $LIBRARY_PATH
+
+    echo "LD_LIBRARY_PATH:"
+    echo $LD_LIBRARY_PATH
+
+    echo "PKG_CONFIG_PATH"
+    echo $PKG_CONFIG_PATH
+
+    echo "pkg-config pangocairo"
+    pkg-config --libs pangocairo
+    pkg-config --cflags pangocairo
+
+    echo "pkg-config cairo"
+    pkg-config --libs cairo
+    pkg-config --cflags cairo
     npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1
   else
     echo "Skipping (no package.json)"
