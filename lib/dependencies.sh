@@ -27,8 +27,6 @@ install_node_modules() {
     pkg-config --libs cairo
     pkg-config --cflags cairo
 
-    echo "Listing /app/vendor/pango/include/pango-1.0..."
-    ls /app/vendor/pango/include/pango-1.0
     npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1
   else
     echo "Skipping (no package.json)"
